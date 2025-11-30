@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>{% include 'main.html' %}
+<form action="{% url 'ma' %}" method="POST">
+    {% csrf_token %}
+
+<center>
+    {{msg}}<br><label>Enter the Medicine ID:</label><input type="number" name="mid">
+<br><input type="submit" value="Search">
+</center>
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+<html lang="en">
+<head>
+
+</head>
+<body>
+{% include 'main.html'%}
+<form action="{% url 'rm' %}" method="POST">
+    {% csrf_token %}
+    <table align="center">
+        <caption>Remove medicine</caption>
+        <tr><td>Enter Medicine ID</td><td><input type="number" name="smi"></td></tr>
+        <tr><td colspan="2" align="center"><input type="submit"></td></tr>
+    </table>
+    </form>
+{% include 'footer.html'%}
+</body>
+</html>

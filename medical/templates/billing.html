@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+<head>
+</head>
+<body>
+{% include 'main.html'%}
+<form action="{% url 'bm' %}" method="POST">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>Enter the Medicine ID</td>
+            <td><input type="number" name="mid"></td>
+        </tr>
+        <tr>
+            <td>Enter the Quantity</td>
+            <td><input type="number" name="q"></td>
+        </tr>
+        <tr>
+            <td>Enter the Customer ID</td>
+            <td><input type="number" name="cus" >
+            </td>
+        </tr>
+        <tr>
+
+            <td><input type="submit" name="b" value="submit"></td>
+        </tr>
+    </table>
+    <table align="center" cellspacing="0" border="1">
+        <caption>{{msg1}}</caption>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Date</th>
+            <th>Customer ID</th>
+            <th>Medicine ID</th>
+            <th>Operator</th>
+            <th>Quantity</th>
+            <th>Bill Amount</th>
+        </tr>
+        <tr>
+            <td>{{msg.TransactionID}} </td>
+            <td>{{msg.Date}}</td>
+            <td>{{msg.Cusid}}</td>
+            <td>{{msg.MID}}</td>
+            <td>{{msg.OperatorID}}</td>
+            <td>{{msg.Quantity}}</td>
+            <td>{{msg.BillAmount}}</td>
+        </tr>
+        <tr>
+            <th colspan="6" align="left"> TOTAL Bill</th>
+            <th align="right">{{msg.Total}}</th>
+        </tr>
+    </table>
+</form>
+{% include 'footer.html'%}
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+<html>
+<head>
+
+
+</head>
+<body>
+{% include 'main.html'%}
+<form action="{% url 'sm' %}" method="POST">
+    {% csrf_token %}
+    <table align="center">
+        <caption>Searching medicine</caption>
+        <tr><td>Enter Medicine ID</td><td><input type="number" name="smi"></td></tr>
+        <tr><td colspan="2" align="center"><input type="submit"></td></tr>
+    </table>
+    <table align="center" cellspacing="0" border="1">
+        <caption>{{msg}}</caption>
+        <tr><th>MedicineID</th><th>Medicine Name</th><th>EXP DATE</th><th>Product Cost</th><th>Selling Price</th><th>Availability</th><th>Image</th></tr>
+        <tr>
+            <td>{{m.MedicineID}}</td>
+            <td>{{m.MedicineName}}</td>
+            <td>{{m.EXPDate}}</td>
+            <td>{{m.ProductCost}}</td>
+            <td>{{m.SeellingCost}}</td>
+            <td>{{m.Availability}}</td>
+            <td><img src="{{m.Image.url}}" width="50" height="50" ></td>
+        </tr>
+    </table>
+
+</form>
+{%include 'footer.html'%}
+</body>
+</html>

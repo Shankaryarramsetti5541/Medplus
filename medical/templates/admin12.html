@@ -1,0 +1,22 @@
+{% load static %}
+<html >
+<head>
+
+</head>
+<body>
+
+<table align="center" width="100%">
+   <tr>
+       <th> <img src="{% static 'medicallogo.png' %}" height="70" width="70"> </th>
+    <th><h1 >&nbsp;&nbsp;&nbsp;MEDITRUST++</h1></th>
+       <td align="end"><b>PH:</b> 9866265541<br> <b>Email:</b> shankaryarramsetti5541@gmail.com</td>
+    </tr></table><hr>
+<h3 align="center"><center>
+<a href="{% url 'ad'%}">Home</a> &nbsp;&emsp;&emsp;
+<a href="{% url 'ts'%}">Total Sales</a> &nbsp;&nbsp;&emsp;&emsp;
+<a href="{% url 'ao'%}">Add Operator</a> &nbsp;&nbsp;&emsp;&emsp;
+<a href="{% url 'do'%}">Delete OPerator</a> &nbsp;&nbsp;&emsp;&emsp;
+<a href="{% url 'h'%}">Logout</a> </center></h3>
+{% include 'footer.html'%}
+</body>
+</html>

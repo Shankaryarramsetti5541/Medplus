@@ -1,0 +1,32 @@
+
+<html>
+<head>
+
+</head>
+<body>
+{% include 'header.html' %}
+<form action="{% url 'reg' %}" method="POST">
+    {% csrf_token %}
+    <table align="center">
+        <tr> {{msg}}</tr>
+        <tr><td>customer id</td><td><input type="text" name="cid"></td></tr>
+        <tr><td>Customer Name</td><td><input type="text" name="cn"> </td></tr>
+        <tr><td>Gender</td><td><input type="radio" name="g" value="Male">Male &nbsp; <input type="radio" name="g" value="Female">Female</td></tr>
+        <tr><td>Date Of Birth</td><td><input type="date" name="dob"></td></tr>
+        <tr><td>phone number</td><td><input type="number" name="pn" minlength="10" required></td></tr>
+        <tr><td>Email</td><td><input type="email" name="email" required></td></tr>
+        <tr><td>State</td><td><select name="state">
+            <option name="None">Select One</option>
+            <option name="Andhrapradesh">Andhrapradesh</option>
+            <option name="Telangana">Telangana</option>
+            <option name="Karnataka">Karnataka</option>
+            <option name="Tamilnadu">tamilnadu</option>
+            <option name="Odisa">Odisa </option>
+        </select></td></tr>
+        <tr><td>City</td><td><input type="text" name="city"></td></tr>
+        <tr><td colspan="2" align="center"><input type="submit"> </td> </tr>
+    </table>
+</form>
+{% include 'footer.html' %}
+</body>
+</html>

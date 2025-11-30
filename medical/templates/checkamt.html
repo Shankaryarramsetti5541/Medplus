@@ -1,0 +1,49 @@
+
+<html lang="en">
+<head>
+
+</head>
+<body>
+{% include 'main.html'%}
+<form action="{% url 'chk' %}" method="POST">
+    {% csrf_token %}
+    <table align="center">
+        <caption><b>{{msg1}}</b></caption>
+        <tr>
+            <th>Select the Date</th><td><input type="date" name="d"></td>
+        </tr>
+        <tr>
+            <th colspan="2"> <input type="submit"></th>
+        </tr>
+    </table>
+    <table align="center" cellspacing="0" border="1">
+        <caption><b>Bill on{{date}}</b></caption>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Date</th>
+            <th>Customer ID</th>
+            <th>Medicine ID</th>
+            <th>Operator</th>
+            <th>Quantity</th>
+            <th>Bill Amount</th>
+        </tr>
+        <tr>
+            {% for m in msg %}
+            <td>{{m.TransactionID}} </td>
+            <td>{{m.Date}}</td>
+            <td>{{m.Cusid}}</td>
+            <td>{{m.MID}}</td>
+            <td>{{m.OperatorID}}</td>
+            <td>{{m.Quantity}}</td>
+            <td>{{m.BillAmount}}</td>
+        </tr>
+{% endfor %}
+        <tr>
+            <th colspan="6"> Total Bill </th>
+            <th>{{t}}</th>
+        </tr>
+    </table>
+</form>
+{% include 'footer.html'%}
+</body>
+</html>

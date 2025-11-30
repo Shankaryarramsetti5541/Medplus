@@ -1,0 +1,41 @@
+
+<html lang="en">
+<head>
+
+</head>
+<body>
+{% include 'admin12.html' %}
+<form action="{% url 'sd' %}" method="post">
+    {% csrf_token %}
+<table align="center">
+    <tr><td>Select  Date</td><td><input type="date" name="sd"></td></tr>
+    <tr><td colspan="2"><input type="submit" name="submit"></td></tr>
+</table>
+
+    <table align="center" cellspacing="0" border="1">
+        <caption>{{msg1}}</caption>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Date</th>
+            <th>Customer ID</th>
+            <th>Medicine ID</th>
+            <th>Operator</th>
+            <th>Quantity</th>
+            <th>Bill Amount</th>
+        </tr>
+        <tr>
+            {% for m in msg %}
+            <td>{{m.TransactionID}} </td>
+            <td>{{m.Date}}</td>
+            <td>{{m.Cusid}}</td>
+            <td>{{m.MID}}</td>
+            <td>{{m.OperatorID}}</td>
+            <td>{{m.Quantity}}</td>
+            <td>{{m.BillAmount}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</form>
+{% include 'footer.html'%}
+</body>
+</html>

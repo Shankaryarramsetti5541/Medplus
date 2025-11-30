@@ -1,0 +1,42 @@
+
+<html lang="en">
+<head>
+
+</head>
+<body>
+{% include 'admin12.html' %}
+  <form action="{% url 'sow' %}" method="post">
+    {% csrf_token %}
+    <table align="center">
+      <tr><th>Enter Operator ID</th><td> <input type="number" name="oid"></td></tr>
+      <tr>  <th>Select Date</th><td><input type="date" name="d"></td></tr>
+<tr><td colspan="2" align="center"> <input type="submit" name="Search"></td></tr>
+</table>
+      <center>{{msg1}}</center>
+    <table border="1" align="center">
+        <tr>
+            <th>TransactionID</th>
+            <th>Cusid</th>
+            <th>MID</th>
+            <th>OperatorID</th>
+            <th>Quantity</th>
+            <th>BillAmount</th>
+            <th>Date</th>
+        </tr>
+        {% for item in msg %}
+        <tr>
+            <td>{{ item.TransactionID }}</td>
+            <td>{{ item.Cusid }}</td>
+            <td>{{ item.MID }}</td>
+            <td>{{ item.OperatorID }}</td>
+            <td>{{ item.Quantity }}</td>
+            <td>{{ item.BillAmount }}</td>
+            <td>{{ item.Date }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</form>
+{% include 'footer.html' %}
+</body>
+</html>

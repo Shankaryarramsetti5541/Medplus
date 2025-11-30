@@ -1,0 +1,25 @@
+
+<html lang="en">
+<head>
+    <style>
+
+</style>
+
+</head>
+<body>
+{% include 'header.html' %}
+<form action="{% url 'ad' %}" method="POST">
+    {% csrf_token %}
+    <table align="center">
+        <caption> Operator Username & Password</caption>
+        <tr><td><b>{{msg}}</b></td></tr>
+        <tr><td>username</td><td><input type="text" name="un"></td></tr>
+        <tr><td>Password</td><td><input type="password" name="p"> </td></tr>
+        <tr><td align="center" colspan="2"><input type="submit"></td> </tr>
+    </table>
+</form>
+<footer>
+{% include 'footer.html' %}
+    </footer>
+</body>
+</html>

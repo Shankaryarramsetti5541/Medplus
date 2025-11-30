@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+{% include 'main.html' %}
+<form action="{% url 'am' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center">
+        <tr><td>{{msg}}</td></tr>
+        <tr><td>MedicineID</td><td><input type="number" name="mid" value="{{data}}"> </td></tr>
+        <tr><td>Medicine name</td><td><input type="text" name="mn"></td></tr>
+        <tr><td>Exp date</td><td><input type="date" name="ed"> </td></tr>
+        <tr><td>Product Cost</td><td><input type="number" name="pc"></td></tr>
+        <tr><td>Selling Cost</td><td><input type="number" name="sc"></td></tr>
+        <tr><td>Availability</td><td><input type="number" name="avy"></td></tr>
+        <tr><td>Picture</td><td><input type="file" name="img"></td></tr>
+        <tr><td colspan="2" align="center"><input type="submit" value="Add"></td></tr>
+    </table>
+</form>
+{% include 'footer.html'%}
+</body>
+</html>

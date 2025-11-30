@@ -1,0 +1,25 @@
+
+<html lang="en">
+<head>
+
+</head>
+<body>
+{% include 'admin12.html' %}
+<form action="{% url 'ao' %}" method="POST">
+  {% csrf_token %}
+<table align="center">
+  <caption>{{msg}}</caption>
+  <tr><td>Operetor Id</td><td><input type="text" name="oid"></td></tr>
+
+  <tr><td>Operetor Name</td><td><input type="text" name="on"></td></tr>
+<tr><td>Operetor userName</td><td><input type="text" name="ou"></td></tr>
+  <tr><td>Password</td><td><input type="password" name="p"></td></tr>
+  <tr><td>gender</td><td><input type="radio" name="g" value="Male">Male
+                         <input type="radio" name="g" value="Female"> Female</td></tr>
+  <tr><td>Phone Number</td><td><input type="number" name="ph"></td></tr>
+  <tr><td colspan="2" align="center"><input type="submit" name="submit"></td></tr>
+
+</table>
+  </form>
+</body>
+</html>
